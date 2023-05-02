@@ -1,11 +1,10 @@
 import { View,Text } from "react-native";
-
-function MainScreen(){
+function NoteScreen(){
     return(
         <View>
-            <Text>Main screen</Text>
+            <Text>NoteScreen</Text>
         </View>
     )
 }
 
-export default MainScreen;
+export default NoteScreen;

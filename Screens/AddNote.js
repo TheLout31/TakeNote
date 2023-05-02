@@ -1,11 +1,11 @@
 import { View,Text } from "react-native";
 
-function MainScreen(){
+function AddNote(){
     return(
         <View>
-            <Text>Main screen</Text>
+            <Text>AddNote</Text>
         </View>
     )
 }
 
-export default MainScreen;
+export default AddNote;
