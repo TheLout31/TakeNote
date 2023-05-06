@@ -2,10 +2,18 @@ import { SafeAreaView } from "react-native";
 import { View, Text, StyleSheet } from "react-native";
 import CusInputText from "../Components/CusInputText";
 import FloatingBtn from "../Components/FloatingBtn";
+import { useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 function MainScreen({navigation}) {
-  
+    useEffect(()=>{
+      getData()
+    },[]);
+    const getData =async()=>{
+      const noteobject = await AsyncStorage.getItem('notes');
+      console.log(noteobject)
+    }
   return (
     <View style={styles.container}>
       <View style={styles.searchtab}>
