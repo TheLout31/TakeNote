@@ -5,23 +5,23 @@ import FloatingBtn from "../Components/FloatingBtn";
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import DisplayNotes from '../Components/DisplayNotes'
 
-function MainScreen({navigation}) {
-    useEffect(()=>{
-      getData()
-    },[]);
-    const getData =async()=>{
-      const noteobject = await AsyncStorage.getItem('notes');
-      console.log(noteobject)
-    }
+function MainScreen({ navigation }) {
+  
   return (
     <View style={styles.container}>
       <View style={styles.searchtab}>
-        <CusInputText name='search' placeholder='Search' cusheight={60}/>
+        <CusInputText name="search" placeholder="Search" cusheight={60} />
+      </View>
+      
+      <View>
+        <DisplayNotes/>
       </View>
       <View style={styles.floatcontainer}>
-        <FloatingBtn onPressing={() => navigation.navigate('AddNote')} />
+        <FloatingBtn onPressing={() => navigation.navigate("AddNote")} />
       </View>
+      
     </View>
   );
 }
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 40,
+    paddingBottom:90,
     backgroundColor: "#2c2b4b",
   },
   searchtab: {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   floatcontainer: {
-    paddingTop: 700,
+    
     backgroundColor: "#2c2b4b",
   },
 });

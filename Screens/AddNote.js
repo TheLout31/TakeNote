@@ -1,7 +1,8 @@
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
-function AddNote({navigation}) {
+
+function AddNote({ navigation }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -18,6 +19,7 @@ function AddNote({navigation}) {
       const note = {
         title: title,
         description: description,
+        id: Math.random(),
       };
       const storedNotes = await AsyncStorage.getItem("notes");
       let notes = [];
@@ -28,7 +30,7 @@ function AddNote({navigation}) {
       await AsyncStorage.setItem("notes", JSON.stringify(notes));
       setTitle("");
       setDescription("");
-      navigation.navigate('MainScreen')
+      navigation.navigate("MainScreen");
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +55,7 @@ function AddNote({navigation}) {
             placeholder="Description"
             onChangeText={handleDescriptionChange}
             value={description}
-            textAlignVertical='top'
+            textAlignVertical="top"
           />
         </View>
         <View style={styles.cusbtn}>
@@ -75,7 +77,6 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     margin: 12,
-    
     padding: 10,
     backgroundColor: "white",
     borderRadius: 20,
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
   maincontainer: {
     flex: 1,
     backgroundColor: "#262640",
+    justifyContent:'center'
   },
   sumcontainer: {
     margin: 30,
