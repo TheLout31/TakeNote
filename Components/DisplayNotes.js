@@ -31,7 +31,7 @@ function DisplayNotes() {
         const storedNotes = await AsyncStorage.getItem("notes");
         if (storedNotes !== null) {
           setNotes(JSON.parse(storedNotes));
-          console.log(storedNotes);
+          
         }
       } catch (e) {
         console.error("Failed to get notes:", e);
